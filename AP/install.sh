@@ -1,10 +1,10 @@
 #!/bin/sh
-# --name, --diskを編集
-#qemu-img create -f qcow2 server.qcow2 5G
+# --name, --disk, --locationを編集
+qemu-img create -f qcow2 '~/SPIArea/KVM_images/APServer_1.qcow2' 5G
 virt-install \
 --name APServer_1 \
 --ram=640 \
---disk path='~/SPIArea/KVM_images/server.qcow2',size=10,format=qcow2 \
+--disk path='~/SPIArea/KVM_images/APServer_1.qcow2',size=10,format=qcow2 \
 --vcpus 1 \
 --os-type linux \
 --os-variant rhel7 \
