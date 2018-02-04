@@ -1,5 +1,6 @@
 #!/bin/sh
 # --name, --disk, --locationを編集
+#sudo(root権限)で実行する事
 qemu-img create -f qcow2 "$HOME/SPIArea/KVM_images/APServer_1.qcow2” 5G
 virt-install \
 --name APServer_1 \
