@@ -6,4 +6,4 @@ COPY index.html /usr/share/nginx/html/
 COPY server.conf /etc/nginx/conf.d/server.conf
 
 EXPOSE 80
-ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off", "-c", "/etc/nginx/nginx.conf;"]
