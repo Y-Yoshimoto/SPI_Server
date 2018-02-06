@@ -1,15 +1,22 @@
 FROM centos
 MAINTAINER nginxtest
+
+# nginxのインストール
 RUN yum install -y epel-release
 RUN yum install -y nginx
-COPY index.html /usr/share/nginx/html/
-# COPY server.conf /etc/nginx/conf.d/server.conf
 
+# コンテツファイルの設置
+COPY index.html /usr/share/nginx/html/
+
+# nginx設定ファイルの設置
+COPY server.conf /etc/nginx/nginx.conf
+COPY server.conf /etc/nginx/conf.d/server.conf
+COPY serverTSL.conf /etc/nginx/conf.d/serverTSL.conf
+
+# コンテナ実行時の動作設定
 EXPOSE 80
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
 
 # Dockerfileのビルド, 実行, コンテナ内操作
-# docker build -f ./Dockerfile -t nginx:nginx0.1 --no-cache .
-# docker run -d --name nginxtest -i -t -p 80:80 nginx:nginx0.1
-#
-
+## docker build -f ./Dockerfile -t nginx:nginx0.1 --no-cache .
+## docker run -d --name nginxtest -i -t -p 80:80 nginx:nginx0.1
