@@ -4,7 +4,7 @@
 qemu-img create -f qcow2 "$HOME/SPIArea/KVM_images/APServer1.qcow2" 5G
 virt-install \
 --name APServer1 \
---ram=1024 \
+--ram=512 \
 --disk path="$HOME/SPIArea/KVM_images/APServer_1.qcow2",size=5,format=qcow2 \
 --vcpus 1 \
 --arch x86_64 \
