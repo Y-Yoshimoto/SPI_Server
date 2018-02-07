@@ -9,7 +9,7 @@ RUN yum install -y nginx
 COPY index.html /usr/share/nginx/html/
 
 # nginx設定ファイルの設置
-COPY server.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY server.conf /etc/nginx/conf.d/server.conf
 COPY serverTSL.conf /etc/nginx/conf.d/serverTSL.conf
 
@@ -18,5 +18,6 @@ EXPOSE 80
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
 
 # Dockerfileのビルド, 実行, コンテナ内操作
-## docker build -f ./Dockerfile -t nginx:nginx0.1 --no-cache .
-## docker run -d --name nginxtest -i -t -p 80:80 nginx:nginx0.1
+## docker build -f ./Dockerfile -t nginx:nginx0.2 .
+## docker run -d --name nginxtest -i -t -p 80:80 nginx:nginx0.2
+## docker exec -it nginx0.2 /bin/bash
