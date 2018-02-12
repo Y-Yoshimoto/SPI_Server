@@ -19,6 +19,8 @@ EXPOSE 80
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
 
 # Dockerfileのビルド, 実行, コンテナ内操作
-## docker build -f ./Dockerfile -t nginx:nginx0.2 .
-## docker run -d --name nginxtest -i -t -p 80:80 nginx:nginx0.2
-## docker exec -it nginx0.2 /bin/bash
+## docker build -t centos/nginx:0.3 .
+## docker build --tag="centos/nginx:0.3" .
+## docker build -f ./Dockerfile -t centos/nginx:0.3 --no-cache .
+## docker run -d --name nginxtest -i -t -p 80:80 centos/nginx:0.3
+## docker exec -it nginx0.3 /bin/bash
