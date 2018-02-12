@@ -11,6 +11,7 @@ COPY index.html /usr/share/nginx/html/
 # nginx設定ファイルの設置
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY server.conf /etc/nginx/conf.d/server.conf
+COPY upstream.conf /etc/nginx/conf.d/upstream.conf
 COPY serverTSL.conf /etc/nginx/conf.d/serverTSL.conf
 
 # コンテナ実行時の動作設定
