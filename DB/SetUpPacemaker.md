@@ -6,6 +6,7 @@ yum -y install pacemaker pcs
 systemctl start pcsd
 systemctl enable pcsd
 ```
+<<<<<<< HEAD
 
 ## Pacemaker用のユーザの設定
 ```bash
