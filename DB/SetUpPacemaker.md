@@ -38,5 +38,5 @@ pcs property set default-resource-stickiness="INFINITY"
 pcs resource create Virtual_IP ocf:heartbeat:IPaddr2 ip=192.168.122.5 cidr_netmask=24 op monitor interval=30s
 
 ## 設定確認
-pcs porerty list
+pcs property list
 pcs status resources
