@@ -4,15 +4,15 @@ rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 # MySQL5.7の最新版インストール
 yum install mysql-community-server -y
 # MySQLの起動及び状態表示
-service mysqld start
+systemctl start mysqld.service
 systemctl status mysqld.service
 
 # ルートパスワードの確認
 grep 'temporary password' /var/log/mysqld.log
 
 ## 以下手動操作
-# mysql -uroot -p
-# ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
+mysql -uroot -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Pass';
 
 # OSイメージをコピー
 
@@ -61,3 +61,14 @@ change replication filter replicate_do_db = (testDB);
 ## スレーブとして起動する
 start slave;
 show slave status\G
+
+
+# 接続用ユーザの追加
+grant all privileges on testDB.* to DBuser@"%" identified by 'passwd' with grant option;
+
+## パスワードのルールを緩和
+```bash
+SET GLOBAL validate_password_length=4;
+SET GLOBAL validate_password_policy=LOW;
+SHOW VARIABLES LIKE 'validate_password%';
+```
