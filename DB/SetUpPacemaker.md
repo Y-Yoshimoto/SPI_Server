@@ -30,17 +30,25 @@ pcs status corosync
 # VIPリソース設定
 
 ## STONITH(:スプリットブレイン対策)のオプションを無効にしておく
+```bash
 pcs property set stonith-enabled=false
+```
 
 ## 自動フェイルバックを無効にする
+```bash
 pcs property set default-resource-stickiness="INFINITY"
+```
 
 ## VPIリソースを設定する
+```bash
 pcs resource create Virtual_IP ocf:heartbeat:IPaddr2 ip=192.168.122.5 cidr_netmask=24 op monitor interval=10s
+```
 
 ## 設定確認
+```bash
 pcs property list
 pcs status resources
+```
 
 # MySQLリソースの設定
 ```bash
@@ -66,5 +74,5 @@ pcs resource master MySQL-clone MySQL-cluster master-max=1 master-node-max=1 clo
 pcs cluster start DBServer2 # 2系を起動し、状態を確認
 pcs status cluster
 pcs resource start MySQL-clone
-```
 pcs resource enable MySQL-clone
+```
