@@ -39,7 +39,7 @@ pcs property set stonith-enabled=false
 pcs property set default-resource-stickiness="INFINITY"
 ```
 
-## VPIリソースを設定する
+## VIPリソースを設定する
 ```bash
 pcs resource create Virtual_IP ocf:heartbeat:IPaddr2 ip=192.168.122.5 cidr_netmask=24 op monitor interval=10s
 ```
@@ -57,7 +57,7 @@ pcs resource describe systemd:mysqld                            # mysqlリソー
 pcs resource create MySQL systemd:mysqld                        # mysqlリソースの設定
 pcs resource update MySQL op monitor interval=10 timeout=50     # 監視のインターバル,タイムアウトを設定
 pcs resource clone MySQL                                        # mysqlリソースをクローン起動する
-pcs constraint colocation add Virtual_IP with MySQL             # VIPとMySQLが同じノードで動くように設定
+pcs constraint colocation add Virtual_IP with MySQL-clone       # VIPとMySQLが同じノードで動くように設定
 pcs cluster cib MySQL_resource.cib                              # 設定ファイルの出力
 pcs config                                                      # 設定の確認
 ```
