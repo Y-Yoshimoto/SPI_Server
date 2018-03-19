@@ -57,7 +57,7 @@ pcs resource describe systemd:mysqld                            # mysqlリソー
 pcs resource create MySQL systemd:mysqld                        # mysqlリソースの設定
 pcs resource update MySQL op monitor interval=10 timeout=50     # 監視のインターバル,タイムアウトを設定
 pcs resource clone MySQL                                        # mysqlリソースをクローン起動する
-pcs constraint colocation add Virtual_IP with MySQL             # VIPとMySQLが同じノードで動くように設定
+pcs constraint colocation add Virtual_IP with MySQL-clone       # VIPとMySQLが同じノードで動くように設定
 pcs cluster cib MySQL_resource.cib                              # 設定ファイルの出力
 pcs config                                                      # 設定の確認
 ```
