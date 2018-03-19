@@ -1,0 +1,10 @@
+# APIServer_nginx
+APIServer_nginx:
+    build: nginx
+    images: centos/apinginx
+    port 80:80
+
+# APIServer_uwsgi
+APIServer_uwsgi:
+    build: uwsgi
+    images: centos/apiuwsgi

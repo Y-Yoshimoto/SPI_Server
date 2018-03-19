@@ -13,16 +13,18 @@ RUN pip install uwsgi
 RUN mkdir -p /etc/uwsgi
 RUN touch /etc/uwsgi/uwsgi.pid
 RUN touch /etc/uwsgi/uwsgi.sock
-RUN touch /var/log/uwsgi.log
+RUN mkdir -p /var/log/uwsgi
+RUN touch /var/log/uwsgi/uwsgi.log
 
 # アプリケーションを配置
 RUN mkdir -p /var/www/uwsgi
 COPY uwsgi.ini /var/www/uwsgi/
 COPY index.py /var/www/uwsgi/
-ENTRYPOINT ["/usr/bin/uwsgi", "--ini", "/etc/uwsgi/emperor.ini"]
+# ENTRYPOINT ["/usr/bin/uwsgi", "--ini", "--uid", "/etc/uwsgi/emperor.ini"]
+ENTRYPOINT ["/usr/bin/uwsgi", "--ini", "/var/www/uwsgi/uwsgi.ini", "--die-on-term"]
 
 # Dockerfileのビルド, 実行, コンテナ内操作
-## docker build --tag="centos/uwsgi" .
-## docker build -f ./Dockerfile -t centos/uwsgi --no-cache .
-## docker run -d --name uwsgitest -i -t -p 80:80 centos/uwsgi
-## docker exec -it uwsgitest /bin/bash
+## docker build --tag="centos/apiuwsgi:0.1" .
+## docker build -f ./Dockerfile -t centos/apiuwsgi:0.1 --no-cache .
+## docker run -d --name apiuwsgi -i -t -p 3031:3031  centos/apiuwsgi:0.1
+## docker exec -it apiuwsgi /bin/bash
