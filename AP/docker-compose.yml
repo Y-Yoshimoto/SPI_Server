@@ -1,10 +1,19 @@
-# APIServer_nginx
-APIServer_nginx:
-    build: nginx
-    images: centos/apinginx
-    port 80:80
+version: '2'
+services:
+    # APIServer_nginx
+    c-nginx:
+        build: "./nginx"
+        image: "c-nginx"
+        # restart: no
+        ports:
+            - "80:80"
+        depends_on:
+            - "c-uwsgi"
 
-# APIServer_uwsgi
-APIServer_uwsgi:
-    build: uwsgi
-    images: centos/apiuwsgi
+    # APIServer_uwsgi
+    c-uwsgi:
+        build: "./uwsgi"
+        image: "c-uwsgi"
+        # restart: no
+        expose:
+            - "3031"

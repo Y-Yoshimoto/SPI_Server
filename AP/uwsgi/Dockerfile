@@ -20,7 +20,6 @@ RUN touch /var/log/uwsgi/uwsgi.log
 RUN mkdir -p /var/www/uwsgi
 COPY uwsgi.ini /var/www/uwsgi/
 COPY index.py /var/www/uwsgi/
-# ENTRYPOINT ["/usr/bin/uwsgi", "--ini", "--uid", "/etc/uwsgi/emperor.ini"]
 ENTRYPOINT ["/usr/bin/uwsgi", "--ini", "/var/www/uwsgi/uwsgi.ini", "--die-on-term"]
 
 # Dockerfileのビルド, 実行, コンテナ内操作
