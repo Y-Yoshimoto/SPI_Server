@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>トップページ</title>
+    <style>
+        /*各ボックスの設定*/
+        #nginx{ background-color: #41962A;}
+        #uwsgi{ background-color: #417FEA;}
+    </style>
+</head>
+<!--自動再読み込み-->
+<meta http-equiv="refresh" content="10">
+<!--CSS読み込み-->
+<link rel="stylesheet" type="text/css" href="./boxlayout.css">
+<!--レスポンシブル用-->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<!--<meta name="viewport" content="width=device-width">-->
+<body>
+	<div class="mainber"><mainber>indexページ</mainber></div>
+	<div id="wrapper">
+<div class="boxContainer">
+		<a href="./"><div class="box" id="nginx">Nginx</div></a>
+		<a href="./api"><div class="box" id="uwsgi">uwsgi</div></a>
+		</div>
+	</div>
+<hr class="bottomber">
+
+</body>
+
+</html>

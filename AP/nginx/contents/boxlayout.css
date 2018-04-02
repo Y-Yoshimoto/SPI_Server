@@ -1,0 +1,149 @@
+body{
+	font-family: -apple-system, 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', 'メイリオ', meiryo, sans-serif;
+	background-color: #EBEBEF;
+}
+.mainber {
+	/*文字*/
+	color: #fefefe;
+	text-align: center;
+
+	/*カラーバー*/
+	margin: 0 auto;/*ブラウザの中央に配置*/
+	background-color: #046380;
+	margin-bottom: 100;
+}
+.bottomber{
+	/*ボトムバー*/
+	margin: 0 auto;/*ブラウザの中央に配置*/
+	border: none;
+	border-top: 20px #046380 solid;
+}
+.box{
+	/*文字*/
+	/*color: #2E2F31;*/
+    color: #fefefe;
+    text-align: center;
+
+	/*枠線*/
+    border-color: #9CA7AC;
+	border-style: solid;
+
+    /*ドロップシャドウ*/
+    box-shadow: 0px 5px 4px rgba(0,0,0,0.4);
+}
+/*#nginx{ background-color: #41962A;}
+#uwsgi{ background-color: #417FEA;}*/
+
+/*LSIZE*/
+@media screen and (min-width:1024px) {
+	.mainber {
+		/*横幅*/
+		width: 1024px;
+		/*文字*/
+		font-size: 60px;
+		/*余白*/
+		margin-bottom: 6px;
+	}
+    .bottomber{
+    	/*ボトムバー*/
+        /*横幅*/
+        width: 1024px;
+    }
+	/*Box設置箇所*/
+	#wrapper {
+		width: 1024px;
+		margin: 0 auto;/*ブラウザの中央に配置*/
+	}
+	.container {
+		width: 1024px;/*boxが横に並ぶだけの幅を確保*/
+		overflow: hidden;/*wrapperからはみ出る部分を非表示にする*/
+	}
+
+	.box {
+		/*文字*/
+		font-size: 52px;
+		text-align: center;
+		line-height: 215px;
+
+		/*BOX設定*/
+		float: left;
+		width: 215px;
+		height: 215px;
+		margin: 8px;
+		margin-bottom: 15px;
+		border-radius: 5px;
+		border-width: 2px;
+	}
+}
+/*MSIZE*/
+@media only screen and (min-width:415px) and (max-width:1023px) {
+	.mainber {
+		/*文字*/
+		font-size: 40px;
+		/*余白*/
+		margin-bottom: 15px;
+	}
+    .bottomber{
+        /*ボトムバー*/
+        /*横幅*/
+        width: 1024px;
+    }
+	/*Box設置箇所*/
+	#wrapper {
+		width: 100%;
+		margin: 0 auto;/*ブラウザの中央に配置*/
+	}
+	.container {
+		width: 100%;/*boxが横に並ぶだけの幅を確保*/
+		/*overflow: hidden;/*wrapperからはみ出る部分を非表示にする*/
+		left: 50%;
+		float: center;
+	}
+
+	.box {
+		/*文字*/
+		font-size: 40px;
+		line-height: 120px;
+
+		left: -50%;
+		float: left;
+
+		/*BOX設定*/
+		width: 45%;
+		height: 120px;
+		margin: 8px;
+		margin-bottom: 15px;
+		border-radius: 5px;
+		border-width: 2px;
+	}
+}
+/*SSIZE*/
+@media screen and (max-width:414px) {
+	.mainber {
+		/*文字*/
+		font-size: 36px;
+		margin: 0 auto;/*ブラウザの中央に配置*/
+	}
+	/*Box設置箇所*/
+	#wrapper {
+		width: 100%;
+		margin: 0 auto;/*ブラウザの中央に配置*/
+	}
+	.container {
+		width: 100%;/*boxが横に並ぶだけの幅を確保*/
+		float: center;
+	}
+
+	.box {
+		/*文字*/
+		font-size: 24px;
+		line-height: 48px;
+
+		/*BOX設定*/
+		width: 95%;
+		height: 48px;
+		border-width: 2px;
+		border-radius: 3px;
+		margin : 8px;
+	}
+}
