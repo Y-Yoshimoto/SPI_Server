@@ -6,7 +6,7 @@ RUN yum install -y epel-release
 RUN yum install -y nginx
 
 # コンテツファイルの設置
-COPY index.html /usr/share/nginx/html/
+COPY contents/* /usr/share/nginx/html/
 
 # nginx設定ファイルの設置
 COPY nginx.conf /etc/nginx/nginx.conf
