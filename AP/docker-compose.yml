@@ -17,3 +17,15 @@ services:
         # restart: no
         expose:
             - "3031"
+        depends_on:
+            - "c-mariadb"
+
+    # APIServer_mariaDB
+    c-mariadb:
+        build: "./mariadb"
+        image: "c-mariadb"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        # restart: no
+        expose:
+            - "3306"
